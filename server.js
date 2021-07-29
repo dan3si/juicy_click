@@ -16,6 +16,22 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/*', (req, res) => {
+  mailer.sendOrder(
+    'testName',
+    'testLastName',
+    'testPhone',
+    'testCity',
+    'test',
+    [{
+      title: 'testTitle',
+      quantity: 2,
+    }]
+  )
+
+  res.send('succesfull')
+})
+
 app.post('/createOrder', bodyParser.json(), (req, res) => {
   mailer.sendOrder(
     req.body.userFirstName,
@@ -26,7 +42,7 @@ app.post('/createOrder', bodyParser.json(), (req, res) => {
     req.body.items
   )
 
-  res.send('OK')
+  res.send('succesfull')
 })
 
 app.post('/sendContactMessage', bodyParser.json(), (req, res) => {
@@ -36,7 +52,7 @@ app.post('/sendContactMessage', bodyParser.json(), (req, res) => {
     req.body.userMessage,
   )
 
-  res.send('OK')
+  res.send('succesfull')
 })
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
