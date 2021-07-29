@@ -1,54 +1,22 @@
-const nodemailer = require('nodemailer')
+const TelegramApi = require('node-telegram-bot-api')
 
 class Mailer {
-  transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'pavelsatanenko69@gmail.com',
-      pass: 'pavel123121',
-    },
-  })
+  token = '1828560214:AAFIqXEpgfqvlWFOTt5eEmhCCCW1LbEYxcM'
+  chatId = 471177922
+  bot = new TelegramApi(this.token, { polling: true })
 
-  #createOrderHTML(firstName, lastName, phone, city, userPostDepartment, items) {
-    return `
-      <div>${firstName} ${lastName}</div>
-      <div>${phone}</div>
-      <div>${city} Новая почта ${userPostDepartment}</div>
-
-      <div style="margin-top: 40px;">
-        ${items
-          .map(item => `<div>${item.title} ${item.quantity}шт</div>`)
-          .join('</br>')
-        }
-      </div>
-    `
-  }
-
-  #createContactMessageHTML(userName, userEmail, userMessage) {
-    return `
-      <div>${userName}</div>
-      <div>${userEmail}</div>
-
-      <div style="margin-top: 40px;">${userMessage}</div>
-    `
-  }
-  
   sendOrder(firstName, lastName, phone, city, userPostDepartment, items) {
-    this.transporter.sendMail({
-      from: '"Juicy Click" <juicyclick@example.com>',
-      to: 'dennis.priadka@gmail.com',
-      subject: 'Поступил новый заказ',
-      html: this.#createOrderHTML(firstName, lastName, phone, city, userPostDepartment, items)
-    })
+    const preparedItems = items
+      .map(item => `${item.title} ${item.quantity}шт`)
+      .join('\n')
+
+    this.bot.sendMessage(
+      this.chatId, `Поступил новый заказ!\n\n\n${firstName} ${lastName}\n${phone}\n${city} НП ${userPostDepartment}\n${preparedItems}`
+    )
   }
 
   sendContactMessage(userName, userEmail, userMessage) {
-    this.transporter.sendMail({
-      from: '"Juicy Click" <juicyclick@example.com>',
-      to: 'dennis.priadka@gmail.com',
-      subject: 'Поступило новое обращение',
-      html: this.#createContactMessageHTML(userName, userEmail, userMessage)
-    })
+    this.bot.sendMessage(this.chatId, `Поступило новое обращение!\n\n\n${userName} \n ${userEmail} \n ${userMessage}`)
   }
 }
 

@@ -16,22 +16,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/*', (req, res) => {
-  mailer.sendOrder(
-    'testName',
-    'testLastName',
-    'testPhone',
-    'testCity',
-    'test',
-    [{
-      title: 'testTitle',
-      quantity: 2,
-    }]
-  )
-
-  res.send('succesfull')
-})
-
 app.post('/createOrder', bodyParser.json(), (req, res) => {
   mailer.sendOrder(
     req.body.userFirstName,
