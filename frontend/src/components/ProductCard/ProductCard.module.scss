@@ -1,0 +1,115 @@
+.productCard {
+  width: 250px;
+  padding: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s;
+  --product-color: black;
+  --product-color-rgb: 0, 0, 0;
+
+  &--blueberry {
+    --product-color: #362f9f;
+    --product-color-rgb: 54, 47, 159;
+  }
+
+  &--peach {
+    --product-color: #c65248;
+    --product-color-rgb: 198, 82, 72;
+  }
+
+  &--vine {
+    --product-color: #7b1a9f;
+    --product-color-rgb: 123, 26, 159;
+  }
+
+  &--grape {
+    --product-color: #981c4c;
+    --product-color-rgb: 152, 28, 76;
+  }
+
+  &--banana {
+    --product-color: #c08535;
+    --product-color-rgb: 192, 133, 53;
+  }
+
+  &--coconut {
+    --product-color: #523025;
+    --product-color-rgb: 82, 48, 37;
+  }
+
+  &:hover {
+    box-shadow: 0 9px 18px rgba(var(--product-color-rgb), 0.3);
+  }
+}
+
+.imageWrapper {
+  margin: 15px 0;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  transition: 1s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.heading {
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.review {
+  font-size: 11px;
+  height: 12px;
+}
+
+.priceBlock {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 30px;
+}
+
+.priceIncription {
+  font-size: 12px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.buyButton {
+  margin-top: 30px;
+  padding: 12px;
+  background-color: var(--product-color);
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover {
+    color: var(--product-color);
+    background: #fff;
+    border-color: var(--product-color);
+  }
+}
+
+.cartIcon {
+  fill: white;
+}

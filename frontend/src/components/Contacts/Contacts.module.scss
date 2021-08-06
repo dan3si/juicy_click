@@ -1,0 +1,83 @@
+.contacts {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  color: lighten(#c08535, 20%);
+  font-size: 64px;
+  text-align: center;
+
+  @media (max-width: 950px) {
+    max-width: 500px;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 48px;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 38px;
+  }
+}
+
+.form {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff9ff;
+  padding: 50px;
+  border-radius: 8px;
+
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
+}
+
+.name,
+.email,
+.message {
+  padding: 15px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  color: black;
+  
+  &:not(:nth-child(1)) {
+    margin-top: 50px;
+  }
+}
+
+.message {
+  height: 200px;
+  resize: vertical;
+}
+
+.submit {
+  margin-top: 40px;
+  padding: 12px;
+  background-color: #c08535;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover {
+    color: #c08535;
+    background: #fff;
+    border-color: #c08535;
+  }
+}

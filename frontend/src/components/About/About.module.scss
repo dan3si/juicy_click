@@ -1,0 +1,54 @@
+.about {
+  background: #fff9ff url('../../img/decorations/fruits.png') no-repeat bottom 0 right 150px / 30%;
+  border-bottom-left-radius: 120px;
+
+  @media (max-width: 900px) {
+    background-size: 35%;
+  }
+
+  @media (max-width: 600px) {
+    background-image: none;
+    border-bottom-left-radius: 60px;
+  }
+}
+
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 100px 40px 200px;
+
+  @media (max-width: 600px) {
+    padding: 50px;
+  }
+}
+
+.heading {
+  font-weight: 600;
+  font-size: 32px;
+  color: #362f9f;
+
+  @media (max-width: 730px) {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
+}
+
+.list {
+  margin-top: 40px;
+  max-width: 600px;
+}
+
+.item {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #6c788b;
+  margin-top: 15px;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
+}

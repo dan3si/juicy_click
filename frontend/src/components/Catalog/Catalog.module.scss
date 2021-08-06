@@ -1,0 +1,22 @@
+.catalog {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-top-right-radius: 120px;
+
+  @media (max-width: 600px) {
+    border-top-right-radius: 60px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 70px;
+  padding: 120px 40px;
+}

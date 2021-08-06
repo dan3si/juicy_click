@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 1px #c08535;
+  z-index: 1;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.link {
+  color: #fff;
+  font-size: 19px;
+  text-decoration: none;
+  transition: 0.2s;
+
+  $flavors: (
+    1: #362f9f,
+    2: #c65248,
+    3: #7b1a9f,
+    4: #c08535,
+    5: #981c4c,
+    6: #523025
+  );
+  
+
+  @each $i, $flavor in $flavors {
+    &:nth-child(#{$i}):hover {
+      color: lighten($flavor, 20%);
+    }
+  }
+}
+
+
