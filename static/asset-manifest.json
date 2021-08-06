@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7ad963cc.chunk.css",
+    "main.js": "/static/js/main.3f714121.chunk.js",
+    "main.js.map": "/static/js/main.3f714121.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ebbc949b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ebbc949b.js.map",
+    "static/js/2.6b2a0268.chunk.js": "/static/js/2.6b2a0268.chunk.js",
+    "static/js/2.6b2a0268.chunk.js.map": "/static/js/2.6b2a0268.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.7ad963cc.chunk.css.map": "/static/css/main.7ad963cc.chunk.css.map",
+    "static/js/2.6b2a0268.chunk.js.LICENSE.txt": "/static/js/2.6b2a0268.chunk.js.LICENSE.txt",
+    "static/media/cart_icon.3124b5b1.svg": "/static/media/cart_icon.3124b5b1.svg",
+    "static/media/delete_icon.8618c2a5.svg": "/static/media/delete_icon.8618c2a5.svg",
+    "static/media/About.module.scss": "/static/media/fruits.5d00fc99.png",
+    "static/media/juicy_click_banana.d07a9333.png": "/static/media/juicy_click_banana.d07a9333.png",
+    "static/media/juicy_click_blueberry.d86431c4.png": "/static/media/juicy_click_blueberry.d86431c4.png",
+    "static/media/juicy_click_coconut.7cbb7956.png": "/static/media/juicy_click_coconut.7cbb7956.png",
+    "static/media/juicy_click_grape.261f84a9.png": "/static/media/juicy_click_grape.261f84a9.png",
+    "static/media/juicy_click_peach.23a57364.png": "/static/media/juicy_click_peach.23a57364.png",
+    "static/media/juicy_click_vine.7f9ea43b.png": "/static/media/juicy_click_vine.7f9ea43b.png",
+    "static/media/logo.5d10f86c.jpg": "/static/media/logo.5d10f86c.jpg",
+    "static/media/using.1a971e00.mp4": "/static/media/using.1a971e00.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ebbc949b.js",
+    "static/js/2.6b2a0268.chunk.js",
+    "static/css/main.7ad963cc.chunk.css",
+    "static/js/main.3f714121.chunk.js"
+  ]
+}
