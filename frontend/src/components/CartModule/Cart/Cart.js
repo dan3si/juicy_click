@@ -51,15 +51,16 @@ function Cart({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setItemsInCa
             />
           ))}
         </div>
-        
-        {itemsInCart.length > 0 && (
-          <div className={styles.cartFooter}>
-            <button
-              className={styles.continueShoppingButton}
-              onClick={closeCart}
-            >
-              Продолжить покупки
-            </button>
+
+        <div className={styles.cartFooter}>
+          <button
+            className={styles.continueShoppingButton}
+            onClick={closeCart}
+          >
+            Продолжить покупки
+          </button>
+
+          {itemsInCart.length > 0 && (
             <div className={styles.createOrderWrapper}>
               <div className={styles.totalPrice}>{totalPrice} грн</div>
               <button
@@ -69,8 +70,8 @@ function Cart({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setItemsInCa
                 Оформить заказ
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ function Using() {
     <div className={styles.using} id="using">
       <h2 className={styles.heading}>Использование</h2>
 
-      <video className={styles.usingVideo} controls="controls" poster="video/duel.jpg">
+      <video className={styles.usingVideo} controls="controls">
         <source src={usingVideoSRC} />
       </video>
     </div>

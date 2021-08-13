@@ -18,7 +18,8 @@ function ProductCard({
       title: productTitle,
       quantity: 1,
       price,
-      image: imageSRC
+      image: imageSRC,
+      russianName: flavorRussianName
     }
 
     setItemsInCart(currentItems => [...currentItems, newItem])

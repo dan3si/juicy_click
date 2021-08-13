@@ -1,13 +1,10 @@
+@import '../../utils.scss';
+
 .promo {
   height: 100vh;
-  padding-top: 200px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-
-  @media (max-width: 500px) {
-    padding-top: 100px;
-  }
+  align-items: center;
 }
 
 .background {
@@ -30,7 +27,8 @@
   color: #fff;
   padding: 15px;
   text-align: center;
-  font-size: 48px;
+  font-size: 34px;
+  font-family: $secondary-font;
 
   @media (max-width: 720px) {
     font-size: 32px;
@@ -39,15 +37,16 @@
 
 .productName {
   display: block;
-  font-size: 128px;
+  font-size: 138px;
   margin-top: 80px;
   color: #c08535;
+  font-family: $primary-font;
 
-  @media (max-width: 720px) {
-    font-size: 86px;
+  @media (max-width: 600px) {
+    font-size: 100px;
   }
 
   @media (max-width: 450px) {
-    font-size: 60px;
+    font-size: 70px;
   }
 }

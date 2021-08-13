@@ -1,3 +1,5 @@
+@import './utils.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: sans-serif;
-  font-family: 'Kalam', cursive;
+  font-family: $primary-font;
 }
 
 body {

@@ -5,13 +5,14 @@ class Mailer {
   chatId = 471177922
   bot = new TelegramApi(this.token, { polling: true })
 
-  sendOrder(firstName, lastName, phone, city, userPostDepartment, items) {
+  sendOrder(firstName, lastName, phone, city, userPostDepartment, items, totalPrice) {
     const preparedItems = items
       .map(item => `${item.title} ${item.quantity}шт`)
       .join('\n')
 
     this.bot.sendMessage(
-      this.chatId, `Поступил новый заказ!\n\n\n${firstName} ${lastName}\n${phone}\n${city} НП ${userPostDepartment}\n${preparedItems}`
+      this.chatId,
+      `Поступил новый заказ!\n\n\n${firstName} ${lastName}\n${phone}\n${city} НП ${userPostDepartment}\n${preparedItems}\n${totalPrice} грн`
     )
   }
 

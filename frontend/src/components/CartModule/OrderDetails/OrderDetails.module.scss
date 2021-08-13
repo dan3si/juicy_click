@@ -1,3 +1,10 @@
+@import '../../../utils.scss';
+
+.container {
+  position: fixed;
+  z-index: 2;
+}
+
 .darker {
   height: 100vh;
   width: 100vw;
@@ -73,6 +80,9 @@
   width: 100%;
   padding: 50px 150px;
   border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 
   @media (max-width: 800px) {
     padding: 50px 20px;
@@ -81,28 +91,17 @@
   @media (max-width: 500px) {
     padding: 20px;
   }
-}
 
-.inputsGroup {
-  display: flex;
-  gap: 30px;
-
-  &:not(:nth-child(1)) {
-    margin-top: 20px;
-  }
-
-  @media (max-width: 520px) {
-    flex-direction: column;
-    gap: 5px;
-
-    &:not(:nth-child(1)) {
-      margin-top: 5px;
-    }
+  @media (max-height: 700px) {
+    gap: 20px;
   }
 }
 
 .inputWrapper {
-  width: 100%;
+  flex-basis: 160px;
+  flex-shrink: 0;
+  flex-grow: 1;
+  font-size: 18px;
 }
 
 .input {
@@ -113,7 +112,7 @@
   outline: none;
   width: 100%;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   color: black;
 }
 
@@ -122,6 +121,7 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  font-family: $secondary-font;
 
   @media (max-width: 520px) {
     padding: 0px 20px 20px;
@@ -160,6 +160,7 @@
 
   @media (max-width: 500px) {
     flex-direction: column;
+    gap: 10px;
   }
 }
 

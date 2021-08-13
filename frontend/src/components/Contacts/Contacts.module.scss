@@ -1,5 +1,5 @@
 .contacts {
-  padding-top: 100px;
+  padding-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,15 +11,19 @@
   text-align: center;
 
   @media (max-width: 950px) {
-    max-width: 500px;
+    max-width: 450px;
   }
 
   @media (max-width: 650px) {
-    font-size: 48px;
+    font-size: 58px;
+  }
+
+  @media (max-width: 550px) {
+    max-width: 300px;
   }
 
   @media (max-width: 400px) {
-    font-size: 38px;
+    font-size: 42px;
   }
 }
 

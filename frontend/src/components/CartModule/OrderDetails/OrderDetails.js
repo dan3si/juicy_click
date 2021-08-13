@@ -3,7 +3,7 @@ import styles from './OrderDetails.module.scss'
 import cn from 'classnames'
 import apiURL from '../../../data/apiURL'
 
-function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setOrderDetailsIsOpen }) {
+function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setItemsInCart, setOrderDetailsIsOpen }) {
   const totalPrice = itemsInCart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   const closeOrderDetails = () => setOrderDetailsIsOpen(false)
@@ -11,6 +11,7 @@ function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setO
     setCartModuleIsOpen(false)
     setTimeout(closeOrderDetails, 500);
   }
+  const clearCart = () => setItemsInCart([])
 
   const [userFirstName, setUserFirstName] = useState('')
   const [userLastName, setUserLastName] = useState('')
@@ -51,12 +52,12 @@ function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setO
       userPhone,
       userCity,
       userPostDepartment,
-      items: itemsInCart.map(({ title, quantity }) => ({ title, quantity })),
+      items: itemsInCart.map(({ russianName, quantity }) => ({ title: russianName, quantity })),
       totalPrice
     }
 
     try {
-      await fetch(
+      const response = await fetch(
         `${apiURL}/createOrder`,
         {
           method: 'POST',
@@ -64,10 +65,17 @@ function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setO
           headers: { 'Content-Type': 'application/json' }
         }
       )
-
-      alert('Спасибо! Ваш заказ оформлен')
-    } catch {
-      alert('Упс! Что-то пошло не так...')
+      
+      if (response.ok) {
+        alert('Спасибо! Ваш заказ оформлен')
+        closeCart()
+        clearCart()
+      } else {
+        throw new Error('Server did not receive an order')
+      }
+    } catch (error) {
+      alert('Упс! Что-то пошло не так... Заказ не был отправлен')
+      console.log(error)
     }
   }
 
@@ -94,80 +102,75 @@ function OrderDetails({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setO
 
         <div className={styles.formWrapper}>
           <form className={styles.form}>
-            <div className={styles.inputsGroup}>
-              <label className={styles.inputWrapper}>
-                Ваше имя:
-                <input
-                  className={styles.input}
-                  placeholder="Иван"
-                  value={userFirstName}
-                  onChange={(e) => setUserFirstName(e.target.value)}
-                />
-              </label>
-              <label className={styles.inputWrapper}>
-                Ваша фамилия:
-                <input
-                  className={styles.input}
-                  placeholder="Иванов"
-                  value={userLastName}
-                  onChange={(e) => setUserLastName(e.target.value)}
-                />
-              </label>
+            <label className={styles.inputWrapper}>
+              Ваше имя:
+              <input
+                className={styles.input}
+                placeholder="Иван"
+                value={userFirstName}
+                onChange={(e) => setUserFirstName(e.target.value)}
+              />
+            </label>
 
-              <label className={styles.inputWrapper}>
-                Номер телефона:
-                <input
-                  className={styles.input}
-                  placeholder="(012) 345 67 89"
-                  value={userPhone}
-                  onChange={setValidatedPhone}
-                />
-              </label>
-            </div>
+            <label className={styles.inputWrapper}>
+              Ваша фамилия:
+              <input
+                className={styles.input}
+                placeholder="Иванов"
+                value={userLastName}
+                onChange={(e) => setUserLastName(e.target.value)}
+              />
+            </label>
 
-            <div className={styles.inputsGroup}>
-              <label className={styles.inputWrapper}>
-                Город:
-                <input
-                  className={styles.input}
-                  placeholder="Киев"
-                  value={userCity}
-                  onChange={(e) => setUserCity(e.target.value)}
-                />
-              </label>
+            <label className={styles.inputWrapper}>
+              Номер телефона:
+              <input
+                className={styles.input}
+                placeholder="(012) 345 67 89"
+                value={userPhone}
+                onChange={setValidatedPhone}
+              />
+            </label>
 
-              <label className={styles.inputWrapper}>
-                Отделение Новой почты:
-                <input
-                  className={styles.input}
-                  placeholder="255"
-                  value={userPostDepartment}
-                  onChange={setValidatedPostDepartment}
-                />
-              </label>
-            </div>
+            <label className={styles.inputWrapper}>
+              Город:
+              <input
+                className={styles.input}
+                placeholder="Киев"
+                value={userCity}
+                onChange={(e) => setUserCity(e.target.value)}
+              />
+            </label>
+
+            <label className={styles.inputWrapper}>
+              Отделение Новой почты:
+              <input
+                className={styles.input}
+                placeholder="255"
+                value={userPostDepartment}
+                onChange={setValidatedPostDepartment}
+              />
+            </label>
           </form>
         </div>
 
-        {itemsInCart.length > 0 && (
-          <div className={styles.orderDetailsFooter}>
+        <div className={styles.orderDetailsFooter}>
+          <button
+            className={styles.returnToCartButton}
+            onClick={closeOrderDetails}
+          >
+            К корзине
+          </button>
+          <div className={styles.sendDataWrapper}>
+            <div className={styles.totalPrice}>{totalPrice} грн</div>
             <button
-              className={styles.returnToCartButton}
-              onClick={closeOrderDetails}
+              className={styles.sendDataButton}
+              onClick={createOrder}
             >
-              К корзине
+              Отправить
             </button>
-            <div className={styles.sendDataWrapper}>
-              <div className={styles.totalPrice}>{totalPrice} грн</div>
-              <button
-                className={styles.sendDataButton}
-                onClick={createOrder}
-              >
-                Отправить
-              </button>
-            </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

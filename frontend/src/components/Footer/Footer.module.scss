@@ -1,3 +1,5 @@
+@import '../../utils.scss';
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -27,4 +29,5 @@
   margin-top: 20px;
   font-size: 16px;
   color: #fff9ff;
+  letter-spacing: 2px;
 }

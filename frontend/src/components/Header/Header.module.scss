@@ -1,3 +1,5 @@
+@import '../../utils.scss';
+
 .header {
   width: 100%;
   top: 0;
@@ -7,7 +9,7 @@
   display: flex;
   justify-content: center;
   box-shadow: 0 0 1px #c08535;
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: 500px) {
     display: none;
@@ -17,17 +19,22 @@
 .container {
   width: 100%;
   max-width: 700px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px;
 }
 
+.linkList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .link {
+  list-style-type: none;
   color: #fff;
-  font-size: 19px;
-  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 1px;
   transition: 0.2s;
+  cursor: pointer;
 
   $flavors: (
     1: #362f9f,

@@ -10,6 +10,7 @@ function CartModule({ cartModuleIsOpen, setCartModuleIsOpen, itemsInCart, setIte
         cartModuleIsOpen={cartModuleIsOpen}
         setCartModuleIsOpen={setCartModuleIsOpen}
         itemsInCart={itemsInCart}
+        setItemsInCart={setItemsInCart}
         setOrderDetailsIsOpen={setOrderDetailsIsOpen}
       />
     : <Cart

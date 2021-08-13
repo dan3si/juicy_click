@@ -1,6 +1,10 @@
+@import '../../utils.scss';
+
 .about {
   background: #fff9ff url('../../img/decorations/fruits.png') no-repeat bottom 0 right 150px / 30%;
   border-bottom-left-radius: 120px;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 900px) {
     background-size: 35%;
@@ -23,8 +27,8 @@
 }
 
 .heading {
-  font-weight: 600;
-  font-size: 32px;
+  font-weight: 700;
+  font-size: 40px;
   color: #362f9f;
 
   @media (max-width: 730px) {
@@ -32,7 +36,7 @@
   }
 
   @media (max-width: 600px) {
-    font-size: 24px;
+    font-size: 26px;
   }
 }
 
@@ -42,7 +46,7 @@
 }
 
 .item {
-  font-family: "Open Sans", sans-serif;
+  font-family: $secondary-font;
   font-weight: 600;
   font-size: 24px;
   color: #6c788b;

@@ -25,7 +25,8 @@ app.post('/createOrder', bodyParser.json(), (req, res) => {
     req.body.userPhone,
     req.body.userCity,
     req.body.userPostDepartment,
-    req.body.items
+    req.body.items,
+    req.body.totalPrice
   )
 
   res.send('succesfull')

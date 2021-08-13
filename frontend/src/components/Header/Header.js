@@ -1,13 +1,17 @@
 import styles from './Header.module.scss'
 
 function Header() {
+  const scrollToBlock = (selector) => document.querySelector(selector).scrollIntoView()
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a href="#about" className={styles.link}>Про нас</a>
-        <a href="#using" className={styles.link}>Использование</a>
-        <a href="#catalog" className={styles.link}>Заказать</a>
-        <a href="#contacts" className={styles.link}>Контакты</a>
+        <ul className={styles.linkList}>
+          <li className={styles.link} onClick={() => scrollToBlock('#about')}>Про нас</li>
+          <li className={styles.link} onClick={() => scrollToBlock('#using')}>Использование</li>
+          <li className={styles.link} onClick={() => scrollToBlock('#catalog')}>Заказать</li>
+          <li className={styles.link} onClick={() => scrollToBlock('#contacts')}>Контакты</li>
+        </ul>
       </div>
     </header>
   )
