@@ -30,23 +30,23 @@
   font-size: 34px;
   font-family: $secondary-font;
 
-  @media (max-width: 720px) {
-    font-size: 32px;
+  @media (max-width: 530px) {
+    font-size: 26px;
   }
 }
 
 .productName {
   display: block;
   font-size: 138px;
-  margin-top: 80px;
+  margin-top: 40px;
   color: #c08535;
-  font-family: $primary-font;
+  font-family: 'Kalam', cursive;
 
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     font-size: 100px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 530px) {
     font-size: 70px;
   }
 }
